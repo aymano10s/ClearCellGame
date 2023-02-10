@@ -72,17 +72,8 @@ public class ClearCellGame extends Game {
 	 * otherwise no operation will take place.
 	 */
 	public void nextAnimationStep() {
-//			int emptyCount = 0;
-//			for(int i=0; i<maxCols;i++)
-//				if(board[board.length-1][i] == BoardCell.EMPTY) {
-//					emptyCount++;
-//				}
-//			 if(emptyCount == this.maxCols) {
-//				 
-//			 }
-//		    }
+
 		if (!isGameOver()) {
-//			if(checkEmpty() && emptyRowNum.contains(board.length - 1)){
 				for (int row = this.board.length - 1; row > 0; row--) {
 					for (int col = 0; col < this.board[row].length; col++) {
 						this.board[row][col] = this.board[row - 1][col];
@@ -94,7 +85,6 @@ public class ClearCellGame extends Game {
 				}
 			}
 		}
-//	}
 
 	/**
 	 * This method will turn to BoardCell.EMPTY the cell selected and any adjacent
@@ -130,16 +120,6 @@ public class ClearCellGame extends Game {
 	 * 
 	 */
 	public void processCell(int rowIndex, int colIndex) {
-//		for (int diag = rowIndex; diag < maxRows; diag++) {
-//			for (int diag2 = colIndex; diag2 < maxCols; diag2++) {
-//				if (rowIndex == maxRows || colIndex == maxCols) {
-//					break;
-//				}
-//				board[rowIndex][colIndex] = BoardCell.EMPTY;
-//			}
-//		}
-
-//		System.out.println(board[rowIndex][colIndex+1].equals(board[rowIndex][colIndex]));
 		if (!isGameOver()) {
 		for (int vert = rowIndex + 1; vert < maxCols; vert++) {
 			if (board[vert][colIndex] == (board[rowIndex][colIndex])) {
@@ -231,49 +211,12 @@ public class ClearCellGame extends Game {
 				// copy row
 				emptyBoard[i] = Arrays.copyOf(board[rowNumber], board[i].length);
 				rowNumber++;
-//				
-//				for (int j = 0; j < board.length; j++) {
-//					System.out.println(emptyBoard[i][j].getName());
-//
-//				}
-
 			}
 			board = emptyBoard;
 		}
 
 	}
 	}
-	// System.out.println(emptyBoard);
-
-	// collapseCell();
-
-//	// Make a new empty board 
-//		private boolean checkEmpty() {
-//			int emptyCount = 0;
-//			for (collapseRow = 0; collapseRow < maxRows - 1; collapseRow++) {
-//				for (int collapseCollumn = 0; collapseCollumn < board[collapseRow].length; collapseCollumn++) {
-//		//			for (int collapseCollumn = 0; collapseCollumn < maxCols; collapseCollumn++) {
-//
-//					if (board[collapseRow][collapseCollumn] == BoardCell.EMPTY) {
-//						emptyCount++;
-//					}
-//
-////					else {
-//////						System.out.println(collapseRow);
-////						collapseRow++;
-////		//				collapseCollumn = 0;
-////						emptyCount = 0;
-////					}
-//				}
-//			}
-//			if (emptyCount == maxCols-1) {
-//					System.out.println(collapseRow);
-//				return true;
-//			}
-//			return false;
-//		}
-//	}
-	// Make a new empty board
 	private boolean checkEmpty() {
 		emptyRowNum.clear();
 		int emptyCount = 0;
@@ -297,7 +240,6 @@ public class ClearCellGame extends Game {
 		}
 		if (emptyRowNum.size() > 0) {
 			System.out.println(emptyRowNum);
-//				System.out.println(emptyRowNum);
 
 			return true;
 		}
@@ -305,96 +247,3 @@ public class ClearCellGame extends Game {
 	}
 }
 
-// Make a temporary new board 
-//public void collapseCell(){
-//	int emptyCount = 0;
-//	for (int collapseRow = 0; collapseRow < maxRows; collapseRow++) {
-//		for (int collapseCollumn = 0; collapseCollumn < maxCols; collapseCollumn++) {
-//			if(board[collapseRow][collapseCollumn].equals(BoardCell.EMPTY)) {
-//				emptyCount++;
-//				if(emptyCount==maxCols) {
-////					System.out.println("Row is Empty at Row:"+collapseRow);
-//					BoardCell[] selectedRow = board[collapseRow+1];
-//					board[collapseRow] = selectedRow;
-//					
-//				}
-//			}
-//			else {
-//				collapseRow++;
-//				collapseCollumn = 0;
-//				emptyCount = 0;
-//				
-//			}
-//		}
-//	}
-//			
-//}
-//	private BoardCell[][] collapseCell() {
-//		BoardCell[][]emptyBoard = new BoardCell[maxRows][maxCols];
-//		int rowNumber = 0;
-//				if (checkEmpty() == true) {
-//								for(int i=0,j=0;i<board.length && j<board.length;i++,j++) {
-//									if(i==1) {
-//										j++;
-//									}
-//								
-//									else {
-//										if(rowNumber < 6) {
-//								emptyBoard[i] = Arrays.copyOf(board[j], board[j].length);
-//								rowNumber++;
-//										}
-//									}
-//						}
-//								ArrayList<BoardCell>emptyArrayList = new ArrayList<BoardCell>();
-//								for(int i=0; i<maxCols;i++) {
-//									emptyArrayList.add(null);
-//								}
-//							    emptyArray = new BoardCell[emptyArrayList.size()];
-//								emptyArray = emptyArrayList.toArray(emptyArray);
-////							for()
-//								return emptyBoard;
-//
-//				}
-//						
-//					//		System.out.println(emptyBoard);
-//							return null;
-//				
-//				}
-
-//		ArrayList<BoardCell>emptyArrayList = new ArrayList<BoardCell>();
-//		for(int i=0; i<maxCols;i++) {
-//			emptyArrayList.add(BoardCell.EMPTY);
-//		}
-//		emptyArray = emptyArrayList.toArray();
-//	    emptyArray = new BoardCell[emptyArrayList.size()];
-//		emptyArray = emptyArrayList.toArray(emptyArray);
-//		
-//		System.out.println(board[row][col] == BoardCell.EMPTY);
-//		for(collapseRow = 0;collapseRow < maxRows; collapseRow++) {
-//			if (board[collapseRow] == (emptyArray)) {
-//			return true;
-//
-//		}
-//			else {
-//		System.out.println(collapseRow);
-//		collapseRow++;
-//	}
-//		for(collapseRow = 0; )
-//}
-// false;
-
-//}
-//make a nested for loop that checks if the board has any empty rows. If there is an empty row copy the orginal board into the empty one 
-//to make it seem like it moved up.
-
-//	if (!isGameOver()) {
-//		for (int row = this.board.length - 1; row > 0; row--) {
-//			for (int col = 0; col < this.board[row].length; col++) {
-//				this.board[row][col] = this.board[row - 1][col];
-//			}
-//		}
-//		for (int i = 0; i < maxCols; i++) {
-//			this.board[0][i] = BoardCell.getNonEmptyRandomBoardCell(randomValue);
-//
-//		}
-//	}
